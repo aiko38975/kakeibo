@@ -1,14 +1,37 @@
-<h1>KAKEBO</h1>
+<header>
+<div class="top-page-logos">
 
+  <h1>KAKEBO</h1>
+  <div class='button-contents'>
+    <ul class='button-lists'>
+      <li><%= link_to 'ログイン', new_user_session_path, class:"log-in", method: :get %></li>
+      <li><%= link_to '新規登録', new_user_registration_path, class:"sign-up",method: :get %></li>
+    </ul>
+  </div>
 
+</div>
+</header>
 
 <div class='top-contents'>
  <%= image_tag "tama.jpeg", class:"top-pict" %>
 </div>
 
-<div class='middle-contents'>
-  <ul class='button-lists'>
-    <li><%= link_to 'ログイン', new_user_session_path, class:"log-in", method: :get %></li>
-    <li><%= link_to '新規登録', new_user_registration_path, class:"sign-up",method: :get %></li>
-  </ul>
+
+<%# -------以下、ログインしたら表示される----- %>
+<div class="records">
+  <h2 class="records-title">収支を入力</h2>
+  <%= form_with model: @top, local: true do |f| %>
+  支出
+  日付
+  費目
+  金額
+  メモ
+   <%# <%= f.text_area :name, class:"items-text", id:"item-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %> 
+
+  <% end %>
 </div>
+
+
+
+<%# -------以下、ログインしていない場合に表示される----- %>
+<%# <p>ログインしてください。新規登録していない場合は、新規登録をしてからログインをしてください。</p> %>

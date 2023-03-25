@@ -4,11 +4,12 @@
   object-fit: cover;
 }
 
-.top-pict{
-  width: 100%;
-  height: 100%;
+// -----header--------
+.top-page-logos{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-
 
 // -------ボタン---------
 .button-lists{
@@ -23,3 +24,13 @@
  }
 
 }
+
+
+
+
+.top-pict{
+  width: 100%;
+  height: 100%;
+}
+
+
