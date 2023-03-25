@@ -1,1 +1,14 @@
-<h1>トップページです</h1>
+<h1>KAKEBO</h1>
+
+
+
+<div class='top-contents'>
+ <%= image_tag "tama.jpeg", class:"top-pict" %>
+</div>
+
+<div class='middle-contents'>
+  <ul class='button-lists'>
+    <li><%= link_to 'ログイン', new_user_session_path, class:"log-in", method: :get %></li>
+    <li><%= link_to '新規登録', new_user_registration_path, class:"sign-up",method: :get %></li>
+  </ul>
+</div>
