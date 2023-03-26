@@ -1,0 +1,32 @@
+
+
+<h1>マイページ</h1>
+
+こんにちは！●●さん！
+
+<%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>
+
+
+収支を登録する
+ 
+ <%= form_with model: @record, local: true do |f| %>
+ <%# <%= render 'shared/error_messages', model: f.object %>
+
+<%= f.radio_button :status, true %>
+<%= f.label :支出 %>
+
+<%= f.radio_button :status, true %>
+<%= f.label :収入 %>
+ 
+ 日付
+ <%= f.date_field :recorded_at, class:"date-input", id:"record-price", placeholder:"例）3000" %>
+ 費目
+ 
+ 金額
+ <%= f.text_field :price, class:"price-input", id:"record-price", placeholder:"例）3000" %>
+ メモ
+ <%= f.text_area :description, class:"items-text", id:"record-description", placeholder:"メモ（20文字まで)", maxlength:"40" %>
+
+一度にたくさん保存する
+
+ <% end %>
