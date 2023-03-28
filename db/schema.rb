@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2023_03_26_030211) do
     t.datetime "recorded_at", null: false
     t.integer "price", null: false
     t.text "description"
+    t.integer "spending_way_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
