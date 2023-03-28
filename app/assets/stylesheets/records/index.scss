@@ -1,36 +1,40 @@
-.top-contents{
+// ---------header-------------
+
+header{
   width: 100vw;
-  height: 50vh;
-  object-fit: cover;
+  height: 10vh;
+  background-color: skyblue;
 }
 
-// -----header--------
-.top-page-logos{
+.header-logos{
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-// -------ボタン---------
-.button-lists{
-  display: flex;
-  justify-content: space-around;
+
+// ---------支出入力フォーム-------------
+.input-title{
+  font-size: 30px;
+}
+
+
+.input-detail{
   align-items: center;
-  
- li{
-  border-radius: 2;
-  border: 2px solid #ed0bc7 ;
-  text-decoration: none;
- }
-
 }
 
-
-
-
-.top-pict{
-  width: 100%;
-  height: 100%;
+.date-content{
+  display: flex;
 }
 
+.way-content{
+  display: flex;
+}
 
+.price-content{
+  display: flex;
+}
+
+.description-text{
+  display: flex;
+}
