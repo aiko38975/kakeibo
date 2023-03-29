@@ -5,6 +5,7 @@ class CreateRecords < ActiveRecord::Migration[6.0]
       t.integer    :price             , null: false
       t.text       :description
       t.integer    :spending_way_id   , null: false
+      t.references :user              , null: false, foreign_key: true
       t.timestamps
     end
   end

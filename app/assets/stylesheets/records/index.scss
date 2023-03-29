@@ -20,21 +20,55 @@ header{
 
 
 .input-detail{
-  align-items: center;
+  margin: auto;
+  width: 90vw;
+ 
+
 }
 
 .date-content{
   display: flex;
 }
-
 .way-content{
   display: flex;
 }
-
 .price-content{
   display: flex;
 }
-
-.description-text{
+.description-content{
   display: flex;
 }
+
+
+.select-box{
+  width: 30%;
+  height: 40px;
+  margin: 10px;
+  font-size: 30px;
+}
+.date-input{
+  width: 30%;
+  height: 40px;
+  margin: 10px;
+  font-size: 30px;
+}
+.price-input{
+  width: 30%;
+  height: 40px;
+  margin: 10px;
+  font-size: 30px;
+}
+.items-text{
+  width: 30%;
+  height: 40px;
+  margin: 10px;
+  font-size: 30px;
+}
+
+
+.input-text{
+  font-size: 30px;
+  margin-right: 10px;
+}
+
+// ---------一覧フォーム-------------//
