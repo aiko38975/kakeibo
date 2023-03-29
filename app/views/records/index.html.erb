@@ -32,6 +32,12 @@
         </div>
         <%= f.collection_select(:spending_way_id,  SpendingWay.all, :id, :name, {}, {class:"select-box", id:"record-spending-way"}) %>
       </div>
+      <div class="pay-content">
+        <div class="input-text">
+          方法
+        </div>
+        <%= f.collection_select(:spending_pay_id,  SpendingPay.all, :id, :name, {}, {class:"select-box", id:"record-spending-pay"}) %>
+      </div>
       <div class="price-content">
         <div class="input-text">
           金額
@@ -57,4 +63,31 @@
   <div class="">
     一度にたくさん保存する
   </div>
+</div>
+
+<div class="report">
+●月の一覧表示
+  <table>
+   <tr>
+    <th>日付</th>
+    <th>カテゴリ</th>
+    <th>方法</th>
+    <th>金額</th>
+    <th>メモ</th>
+    <th>編集</th>
+    <th>削除</th>
+   </tr> 
+   <% @records.each do |record| %>
+   <tr>
+    <td class='report-date'><%= record.recorded_at.strftime('%F') %></td>
+    <td class='report-spending_way'><%= record.spending_way.name %></td>
+    <td class='report-spending_pay'><%= record.spending_pay.name %></td>
+    <td class='report-price'><%= record.price %></td>
+    <td class='report-description'><%= record.description %></td>
+    <td class='report-edit'>編集</td>
+    <td class='report-delete'>削除</td>
+   </tr>
+   <% end %>
+  </table>
+
 </div>

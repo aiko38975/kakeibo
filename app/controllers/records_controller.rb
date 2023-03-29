@@ -3,6 +3,9 @@ class RecordsController < ApplicationController
 
   def index
     @record = Record.new
+    @records = Record.all.order('created_at DESC')
+    # @recorda = Record.find(params[:id])
+    # @date =  @recorda.datetime_column.to_date
   end
   
   def new
@@ -11,16 +14,15 @@ class RecordsController < ApplicationController
 
   def create
     @record = Record.new(record_params)
-    
     if @record.save
       redirect_to records_path
     else
-      render records_path
+      redirect_to records_path
     end
   end
 
   private
   def record_params
-    params.require(:record).permit(:recorded_at, :spending_way_id, :price, :description).merge(user_id: current_user.id)
+    params.require(:record).permit(:recorded_at, :spending_way_id, :spending_pay_id, :price, :description).merge(user_id: current_user.id)
   end
 end
