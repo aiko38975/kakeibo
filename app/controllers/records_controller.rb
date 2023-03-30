@@ -3,7 +3,7 @@ class RecordsController < ApplicationController
 
   def index
     @record = Record.new
-    @records = Record.all.order('created_at DESC')
+    @records = Record.all.order('recorded_at DESC')
     # @recorda = Record.find(params[:id])
     # @date =  @recorda.datetime_column.to_date
   end
@@ -31,6 +31,13 @@ class RecordsController < ApplicationController
       redirect_to records_path
     else
       render :edit
+    end
+  end
+
+  def destroy
+    @record = Record.find(params[:id])
+    if @record.destroy
+      redirect_to records_path
     end
   end
 
