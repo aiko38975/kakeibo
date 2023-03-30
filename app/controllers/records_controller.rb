@@ -21,6 +21,13 @@ class RecordsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+  end
+  
+
   private
   def record_params
     params.require(:record).permit(:recorded_at, :spending_way_id, :spending_pay_id, :price, :description).merge(user_id: current_user.id)
