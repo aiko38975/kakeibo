@@ -1,6 +1,7 @@
 
 body{
   background-color: #ECEADA;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .mypage-main{
@@ -69,6 +70,15 @@ body{
 }
 
 // ---------一覧表示-------------//
+.report{
+  margin: 20px;
+}
+
+.report-title{
+  font-size: 30px;
+  display: flex;
+}
+
 table{
   width: 90%;
   height: 60vh;

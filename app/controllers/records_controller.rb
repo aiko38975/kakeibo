@@ -3,9 +3,19 @@ class RecordsController < ApplicationController
 
   def index
     @record = Record.new
-    @records = Record.all.order('recorded_at DESC')
-    # @recorda = Record.find(params[:id])
-    # @date =  @recorda.datetime_column.to_date
+    # @records = Record.all.order('recorded_at DESC')
+ 
+    if params[:recorded_at].present?
+      binding.pry
+      year = params[:recorded_at][:year].to_i
+      month = params[:recorded_at][:month].to_i
+    else
+      # デフォルトで今月を表示する
+      year = Date.today.year
+      month = Date.today.month
+    end
+    date = Date.new(year, month)
+    @records = Record.where(recorded_at: date.beginning_of_month..date.end_of_month).order('recorded_at DESC')
   end
   
   def new

@@ -1,5 +1,16 @@
 <%= render "shared/header"%>
 
+
+<div class='maypage-header'>
+  メニュー
+  <ul class='category'>
+    <li>支出の登録</li>
+    <li>支出の登録（たくさん）</li>
+    <li>一覧表示</li>
+    <li>統計</li>
+  </ul>
+</div>
+
 <div class="mypage-main">
   <div class="record-input">
     <div class="input-title">
@@ -49,13 +60,31 @@
     <% end %>
   </div>
 
-  <div class="">
-    一度にたくさん保存する
+  <div class="input-title">
+    ▼一度にたくさん保存する
   </div>
 </div>
 
 <div class="report">
-●月の一覧表示
+  <div class='report-title'>
+    <div>▼</div>
+    <div class='report-month'>   
+      <%= form_with model: @record, local: true do |f| %>
+        <%= raw sprintf(
+          f.date_select(
+            :recorded_at,
+            class:'month-input',
+            id:"report-month",
+            use_month_numbers: true,
+            discard_day:true,
+            start_year: (Time.now.year),
+            end_year: (Time.now.year - 5),
+            date_separator:'%s'),'年') + '月' %>
+      <% end %>
+    </div>
+    <div>の一覧表示</div>
+  </div>
+
   <table>
     <thead>
       <tr>
