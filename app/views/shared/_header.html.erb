@@ -1,12 +1,14 @@
 <%# CSS・・・assets/stylesheets/shared/header.css %>
 <header class='record-page-header'>
   <div class='header-logos'>
-    <h1>マイページ</h1>
-    <div class='greeting'>
-      こんにちは!
-      <%= current_user.nickname %>
-      さん
-    </div>
+    <div class='header-left'>
+      <h1>マイページ</h1>
+      <h2 class='greeting'>
+        こんにちは!
+        <%= current_user.nickname %>
+        さん
+      </h2>
+</div>
     <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'logout' %>
   </div>
 </header>

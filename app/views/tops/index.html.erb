@@ -1,24 +1,29 @@
 
-<div class="top-page-logos">
-
-  <h1>KAKEBO</h1>
-  
-</div>
-
-
-<div class='top-contents'>
- <%= image_tag "tama.jpeg", class:"top-pict" %>
-</div>
-
-<div class='button-contents'>
-    <ul class='button-lists'>
-    <% if user_signed_in? %>
-      <li><%= link_to current_user.nickname, records_path, class: "user-nickname" %></li>
-      <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
-    <% else %>
-      <li><%= link_to 'ログイン', new_user_session_path, class:"log-in", method: :get %></li>
-      <li><%= link_to '新規登録', new_user_registration_path, class:"sign-up",method: :get %></li>
-    <% end %>
-    </ul>
+<div class='top-page'>
+  <div class="top-page-logos">
+    <h1>かけいぼ</h1>
   </div>
+
+  <div class='top-contents'>
+    <%= image_tag "tama.jpeg", class:"top-pict" %>
+    <div class='top-contents-right'>
+      <div class='message-content'>
+        かけいぼアプリへようこそ！<br>
+        さっそくログインしましょう！
+      </div>
+      <div class='button-contents'>
+        <ul class='button-lists'>
+        <% if user_signed_in? %>
+        <li><%= link_to current_user.nickname, records_path, class: "user-nickname" %></li>
+          <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
+        <% else %>
+          <li><%= link_to 'ログイン', new_user_session_path, class:"log-in", method: :get %></li>
+          <li><%= link_to '新規登録', new_user_registration_path, class:"sign-up",method: :get %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
 
