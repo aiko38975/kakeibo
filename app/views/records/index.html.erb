@@ -2,12 +2,11 @@
 
 
 <div class='maypage-header'>
-  メニュー
-  <ul class='category'>
-    <li>支出の登録</li>
-    <li>支出の登録（たくさん）</li>
-    <li>一覧表示</li>
-    <li>統計</li>
+  <ul class='menus'>
+    <li class='menu'>支出を1件登録</li>
+    <li class='menu'>支出をたくさん登録</li>
+    <li class='menu'><%= link_to '一覧表示', { anchor: 'title3' } %></li>
+    <li class='menu'><%= link_to '統計', record_path(@records), class:"all-report", method: :get %></li>
   </ul>
 </div>
 
@@ -52,7 +51,7 @@
       </div>
       <%# 保存ボタン %>
       <div class="sell-btn-contents">
-        <%= f.submit "保存する" ,class:"sell-btn" %>
+        <%= f.submit "保存する" ,class:"sell-btn", id: 'submit-save' %>
         <%# <%=link_to 'もどる', root_path, class:"back-btn" %>
       </div>
       <%# /保存ボタン %>
@@ -60,14 +59,14 @@
     <% end %>
   </div>
 
-  <div class="input-title">
+  <div class="input-title",id='title3'>
     ▼一度にたくさん保存する
   </div>
 </div>
 
 <div class="report">
   <div class='report-title'>
-    <div>▼</div>
+    <div >▼</div>
     <div class='report-month'>   
       <%= form_with model: @record, local: true do |f| %>
         <%= raw sprintf(
