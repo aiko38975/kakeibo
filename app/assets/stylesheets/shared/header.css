@@ -1,8 +1,8 @@
 .record-page-header{
   width: 98vw;
   height: 10vh;
-  background-color: #ECEADA;
-  border-bottom: 1px solid #544541;
+  background-color: #c7d8c6;
+  border-bottom: 3px solid #fff;
   padding: 20px 10px 0 10px;
 }
 
@@ -13,13 +13,10 @@
   color: #735E59;
 }
 
-.header-left{
-  display: flex;
-}
-
 .greeting{
   margin-left: 20px;
   line-height: 60px;
+  font-size: 30px;
 }
 
 

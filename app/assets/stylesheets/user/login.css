@@ -1,3 +1,16 @@
+.form-wrap{
+  font-family: 'Zen Maru Gothic', sans-serif; 
+  background-color: #ECEADA;
+}
+
+.form-header-text{
+  font-size: 50px;
+}
+
+.form-text-wrap{
+  font-size: 40px;
+}
+
 .login-btn {
   width: 50%;
   margin: 0 auto;
@@ -6,11 +19,11 @@
 
 .login-red-btn {
   width: 100%;
-  background: #ea352d;
-  border: 1px solid #ea352d;
-  color: #fff;
+  background: #EBDCB2;
+  border: 1px solid #EBDCB2;
+  color: #662E1C;
   line-height: 48px;
-  font-size: 14px;
+  font-size: 40px;
   cursor: pointer;
 }
 

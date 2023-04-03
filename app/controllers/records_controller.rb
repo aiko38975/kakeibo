@@ -1,21 +1,15 @@
 class RecordsController < ApplicationController
   # before_action :authenticate_user!
 
+
   def index
     @record = Record.new
-    # @records = Record.all.order('recorded_at DESC')
- 
-    if params[:recorded_at].present?
-      binding.pry
-      year = params[:recorded_at][:year].to_i
-      month = params[:recorded_at][:month].to_i
-    else
-      # デフォルトで今月を表示する
-      year = Date.today.year
-      month = Date.today.month
-    end
+    year = Date.today.year
+    month = Date.today.month
+    # year = params[:recorded_at][:year].to_i
+    # month = params[:recorded_at][:month].to_i
     date = Date.new(year, month)
-    @records = Record.where(recorded_at: date.beginning_of_month..date.end_of_month).order('recorded_at DESC')
+    @records = Record.where(recorded_at: date.beginning_of_month..date.end_of_month)
   end
   
   def new
@@ -24,6 +18,7 @@ class RecordsController < ApplicationController
 
   def create
     @record = Record.new(record_params)
+    @record.user_id = current_user.id
     if @record.save
       redirect_to records_path
     else
@@ -31,10 +26,9 @@ class RecordsController < ApplicationController
     end
   end
 
-  def show
-    
+  def show 
+    @records = Record.find(params[:id])
   end
-
 
   def edit
     @record = Record.find(params[:id])

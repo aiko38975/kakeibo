@@ -12,7 +12,12 @@
  *
  *= require_tree .
  *= require_self
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
-</style>
+
+
+@font-face {
+  font-family: "RocknRollOne";
+  src: url("/assets/fonts/RocknRollOne-Regular.ttf") format("truetype");
+}
+
+
  */

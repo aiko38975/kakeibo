@@ -2,13 +2,14 @@
 <header class='record-page-header'>
   <div class='header-logos'>
     <div class='header-left'>
-      <h1>マイページ</h1>
-      <h2 class='greeting'>
+      <p class='greeting'>
         こんにちは!
         <%= current_user.nickname %>
-        さん
-      </h2>
-</div>
-    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'logout' %>
+        さん  マイページへようこそ!
+      </p>
+    </div>
+    <div>
+      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'logout' %>
+    </div>
   </div>
 </header>

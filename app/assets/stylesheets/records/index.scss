@@ -1,12 +1,10 @@
 
-body{
-  background-color: #ECEADA;
-  font-family: 'Open Sans', sans-serif;
-}
 
 .mypage-main{
   margin: 20px;
 }
+
+
 
 // -----------メニュー-------------
 .maypage-header{
@@ -35,14 +33,13 @@ body{
 // ---------支出入力フォーム-------------
 .input-title{
   font-size: 30px;
+  margin-bottom: 40px;
 }
 
 
 .input-detail{
   margin: auto;
   width: 90vw;
- 
-
 }
 
 .date-content{
@@ -61,6 +58,12 @@ body{
   display: flex;
 }
 
+.date-input{
+  width: 30%;
+  height: 40px;
+  margin: 10px;
+  font-size: 30px;
+}
 
 .select-box{
   width: 30%;
@@ -68,12 +71,7 @@ body{
   margin: 10px;
   font-size: 30px;
 }
-.date-input{
-  width: 30%;
-  height: 40px;
-  margin: 10px;
-  font-size: 30px;
-}
+
 .price-input{
   width: 30%;
   height: 40px;
@@ -93,19 +91,37 @@ body{
   margin-right: 10px;
 }
 
+.sell-btn-contents{
+
+}
+
+.sell-btn{
+  width: 20%;
+  height: 40px;
+  margin: 10px;
+  font-size: 20px;
+  margin:20px 0 0 60px;
+}
+
+// ---------支出たくさん入力-------------//
+
+.record-multi-input{
+  margin: 20px 0;
+}
+
 // ---------一覧表示-------------//
 .report{
-  margin: 20px;
 }
 
 .report-title{
   font-size: 30px;
   display: flex;
+  margin-bottom: 20px;
 }
 
 table{
   width: 90%;
-  height: 60vh;
+  // height: 60vh;
   border-collapse: collapse;
   border-spacing: 0;
 }
@@ -132,3 +148,8 @@ table tr:nth-child(odd){
   width: 100px;
 }
 
+
+// -------footer--------
+footer{
+  height: 40px;
+}
