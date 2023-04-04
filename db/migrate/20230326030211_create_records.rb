@@ -7,6 +7,8 @@ class CreateRecords < ActiveRecord::Migration[6.0]
       t.integer    :spending_way_id   , null: false
       t.integer    :spending_pay_id   , null: false
       t.references :user              , null: false, foreign_key: true
+      t.datetime   :start_date
+      t.datetime   :end_date
       t.timestamps
     end
   end

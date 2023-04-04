@@ -4,12 +4,13 @@ class RecordsController < ApplicationController
 
   def index
     @record = Record.new
-    year = Date.today.year
-    month = Date.today.month
+    # year = Date.today.year
+    # month = Date.today.month
     # year = params[:recorded_at][:year].to_i
     # month = params[:recorded_at][:month].to_i
-    date = Date.new(year, month)
-    @records = Record.where(recorded_at: date.beginning_of_month..date.end_of_month)
+    # date = Date.new(year, month)
+    @records = Record.includes(:user).order("recorded_at DESC")
+    # @records = Record.where(recorded_at: date.beginning_of_month..date.end_of_month)
   end
   
   def new
@@ -27,7 +28,11 @@ class RecordsController < ApplicationController
   end
 
   def show 
-    @records = Record.find(params[:id])
+    @records = Record.includes(:user).order("created_at DESC")
+  end
+
+  def search
+    @records = Record.search(params[:recorded_at])
   end
 
   def edit
@@ -55,4 +60,9 @@ class RecordsController < ApplicationController
   def record_params
     params.require(:record).permit(:recorded_at, :spending_way_id, :spending_pay_id, :price, :description).merge(user_id: current_user.id)
   end
+
+  # def search_params
+  #   params.fetch(:search, {}).permit(:recorded_at)
+  # end
+
 end

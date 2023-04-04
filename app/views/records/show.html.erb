@@ -5,7 +5,10 @@
 ●月の統計
 
 <div class="report">
-  <%= form_tag %>
+  <%= form_with(url: search_records_path, local: true, method: :get, class: "search-form") do |f| %>
+  <%= f.month_field :recorded_at, placeholder: "投稿を検索する", class: "search-input" %>
+  <%= f.submit "表示", class: "search-btn" %>
+<% end %>
 
     <table>
       <thead>
