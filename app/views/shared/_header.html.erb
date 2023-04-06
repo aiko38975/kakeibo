@@ -1,0 +1,15 @@
+<%# CSS・・・assets/stylesheets/shared/header.css %>
+<header class='record-page-header'>
+  <div class='header-logos'>
+    <div class='header-left'>
+      <p class='greeting'>
+        こんにちは!
+        <%= current_user.nickname %>
+        さん  マイページへようこそ!
+      </p>
+    </div>
+    <div>
+      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'logout' %>
+    </div>
+  </div>
+</header>

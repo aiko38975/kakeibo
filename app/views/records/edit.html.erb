@@ -1,0 +1,48 @@
+<%= render "shared/header"%>
+
+<div class="record-input">
+    <div class="input-title">
+    支出を編集する
+    </div>
+    <%= form_with model: @record, local: true do |f| %>
+    <%# <%= render 'shared/error_messages', model: f.object %>
+    <div class="input-detail">
+      <div class="date-content">
+        <div class="input-text">
+          日付
+        </div>
+        <%= f.date_field :recorded_at, class:"date-input", id:"record-price", placeholder:"例）3,000", size: "60" %>
+      </div>
+      <div class="way-content">
+        <div class="input-text">
+          費目
+        </div>
+        <%= f.collection_select(:spending_way_id,  SpendingWay.all, :id, :name, {}, {class:"select-box", id:"record-spending-way"}) %>
+      </div>
+      <div class="pay-content">
+        <div class="input-text">
+          方法
+        </div>
+        <%= f.collection_select(:spending_pay_id,  SpendingPay.all, :id, :name, {}, {class:"select-box", id:"record-spending-pay"}) %>
+      </div>
+      <div class="price-content">
+        <div class="input-text">
+          金額
+        </div>
+        <%= f.text_field :price, class:"price-input", id:"record-price", placeholder:"例）3000" %>
+      </div>
+      <div class="description-content">
+        <div class="input-text">
+          メモ
+        </div>
+        <%= f.text_area :description, class:"items-text", id:"record-description", placeholder:"メモ（20文字まで)", maxlength:"40" %>
+      </div>
+      <%# 更新ボタン %>
+      <div class="sell-btn-contents">
+        <%= f.submit "更新する" ,class:"sell-btn" %>
+        <%= link_to 'もどる', records_path, class: 'btn btn-secondary' %>
+      </div>
+      <%# /更新ボタン %>
+    </div>
+    <% end %>
+  </div>

@@ -12,4 +12,12 @@
  *
  *= require_tree .
  *= require_self
+
+
+@font-face {
+  font-family: "RocknRollOne";
+  src: url("/assets/fonts/RocknRollOne-Regular.ttf") format("truetype");
+}
+
+
  */

@@ -1,0 +1,157 @@
+<body>
+<% link_to '#', class:'backToTop'%>
+<%= render 'shared/header'%>
+
+
+<div class='maypage-header'>
+  <ul class='menus'>
+    <li class='menu'><%= link_to '支出を1件登録', '#menu1'  %></li>
+    <li class='menu'><%= link_to '支出をたくさん登録', '#menu2' %></li>
+    <li class='menu'><%= link_to '一覧表示', '#menu3' %></li>
+    <li class='menu'><%= link_to '統計', record_path(@records), class:'all-report', method: :get %></li>
+  </ul>
+</div>
+
+<div class='mypage-main'>
+  <div class='record-input'>
+    <div class='input-title' id='menu1'>
+    ▼支出を１件ずつ登録する
+    </div>
+    <div class='record-input-contsnts'>
+      <%# <%= render 'shared/error_messages', model: f.object %>
+      <div class='input-detail'>
+        <%= form_with model: @record, local: true do |f| %>
+        <div class='date-content'>
+          <div class='input-text'>
+            日付
+          </div>
+          <%= f.date_field :recorded_at, class:'date-input', id:'record-price', placeholder:'例）3,000', size: '60' %>
+        </div>
+        <div class='way-content'>
+          <div class='input-text'>
+            費目
+          </div>
+          <%= f.collection_select(:spending_way_id,  SpendingWay.all, :id, :name, {}, {class:'select-box', id:'record-spending-way'}) %>
+        </div>
+        <div class='pay-content'>
+          <div class='input-text'>
+            方法
+          </div>
+          <%= f.collection_select(:spending_pay_id,  SpendingPay.all, :id, :name, {}, {class:'select-box', id:'record-spending-pay'}) %>
+        </div>
+        <div class='price-content'>
+          <div class='input-text'>
+            金額
+          </div>
+          <%= f.text_field :price, class:'price-input', id:'record-price', placeholder:'例）3000' %>
+        </div>
+        <div class='description-content'>
+          <div class='input-text'>
+            メモ
+          </div>
+          <%= f.text_area :description, class:'items-text', id:'record-description', placeholder:'メモ（20文字まで)', maxlength:'40' %>
+        </div>
+        <div class='sell-btn-content'>
+          <%= f.submit '登録する' ,class:'sell-btn', id: 'submit-save' %>
+        </div>
+        <% end %>
+      </div>
+     
+      <div class='youtube'>youtube</div>
+    </div>  
+  </div>
+
+  <div class='record-multi-input'>
+    <div class='input-title' id='menu2' >
+      ▼一度にたくさん保存する
+    </div>
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <th class='table-top'>日付</th>
+            <th class='table-top'>費目</th>
+            <th class='table-top'>方法</th>
+            <th class='table-top'>金額</th>
+            <th class='table-top'>メモ</th>
+          </tr> 
+        </thead>
+        <tbody>
+          <%= form_with model: @record, local: true do |f| %>
+          <tr>
+            <th><%= f.date_field :recorded_at, class:'date-input', id:'record-price' %></th>
+            <th><%= f.collection_select(:spending_way_id,  SpendingWay.all, :id, :name, {}, {class:'select-box', id:'record-spending-way'}) %></th>
+            <th><%= f.collection_select(:spending_pay_id,  SpendingPay.all, :id, :name, {}, {class:'select-box', id:'record-spending-pay'}) %></th>
+            <th><%= f.text_field :price, class:'price-input', id:'record-price' %></th>
+            <th><%= f.text_area :description, class:'items-text', id:'record-description' %></th>
+          </tr>
+          <tr>
+            <th><%= f.date_field :recorded_at, class:'date-input', id:'record-price' %></th>
+            <th><%= f.collection_select(:spending_way_id,  SpendingWay.all, :id, :name, {}, {class:'select-box', id:'record-spending-way'}) %></th>
+            <th><%= f.collection_select(:spending_pay_id,  SpendingPay.all, :id, :name, {}, {class:'select-box', id:'record-spending-pay'}) %></th>
+            <th><%= f.text_field :price, class:'price-input', id:'record-price' %></th>
+            <th><%= f.text_area :description, class:'items-text', id:'record-description' %></th>
+          </tr>
+          <tr>
+            <th><%= f.date_field :recorded_at, class:'date-input', id:'record-price' %></th>
+            <th><%= f.collection_select(:spending_way_id,  SpendingWay.all, :id, :name, {}, {class:'select-box', id:'record-spending-way'}) %></th>
+            <th><%= f.collection_select(:spending_pay_id,  SpendingPay.all, :id, :name, {}, {class:'select-box', id:'record-spending-pay'}) %></th>
+            <th><%= f.text_field :price, class:'price-input', id:'record-price' %></th>
+            <th><%= f.text_area :description, class:'items-text', id:'record-description' %></th>
+          </tr>
+          <%= f.submit '登録する' ,class:'sell-btn', id: 'submit-save' %>
+          <% end %>
+        </tbody>
+
+      </table>
+
+
+    </div>
+  </div>
+
+
+  <div class='report'>
+    <div class='report-title'  id='menu3' >
+      <div >▼</div>
+      <div class='report-month'>   
+        <%= form_with(url: search_records_path, local: true, method: :get, class: 'search-form') do |f| %>
+          <%= f.month_field :recorded_at, placeholder: '投稿を検索する', class: 'search-input' %>
+          <%= f.submit '表示する', class: 'search-btn' %>
+        <% end %>
+      </div>
+    </div>
+
+    <table>
+        <thead>
+          <tr>
+            <th class='table-top'>日付</th>
+            <th class='table-top'>費目</th>
+            <th class='table-top'>方法</th>
+            <th class='table-top'>金額</th>
+            <th class='table-top'>メモ</th>
+            <th class='table-top'>編集</th>
+            <th class='table-top'>削除</th>
+          </tr> 
+        </thead>
+        <tbody>
+          <% @records.each do |record| %>
+          <tr>
+            <td class='report-date'><%= record.recorded_at.strftime('%F') %></td>
+            <td class='report-spending_way'><%= record.spending_way.name %></td>
+            <td class='report-spending_pay'><%= record.spending_pay.name %></td>
+            <td class='report-price'><%= record.price %></td>
+            <td class='report-description'><%= record.description %></td>
+            <td class='report-edit'><%= link_to '編集', edit_record_path(record), method: :get, class: '#' %></td>
+            <td class='report-delete'><%= link_to '削除', record_path(record) , method: :delete, class: '#', data: { confirm: '本当に削除しますか?' } %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+  </div>
+</div>
+
+<footer>
+</footer>
+
+</body>

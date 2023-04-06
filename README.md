@@ -9,8 +9,17 @@ has_many :incomes
 has_many :spendings
 has_many :budgets
 
+## recordsテーブル
+| Column                | Type       | Options                       |
+| --------------------- | ---------  | ----------------------------- |
+| recorded_at           | datetime   | null: false                   |
+| price                 | integer    | null: false                   |
+| description           | text       |                               |
+| user                  | references | null: false, foreign_key: true|
+### Association
 
-## incomesテーブル
+
+## incomesテーブル 　確認する
 | Column                | Type       | Options                       |
 | --------------------- | ---------  | ----------------------------- |
 | incomed_at            | datetime   | null: false                   |
@@ -18,20 +27,20 @@ has_many :budgets
 | description           | text       |                               |
 | user                  | references | null: false, foreign_key: true|
 ### Association
-blongs_to :user
+belongs_to :user
 
 
-## spendingsテーブル
+## spendingsテーブル　確認する
 | Column                | Type       | Options                       |
 | --------------------- | ---------- | ----------------------------- |
 | spended_at            | datetime   | null: false                   |
-| spendingway_id        | integer    | null: false                   |Active hash
-| pay_id                | integer    | null: false                   |Active hash
+| spending_way_id       | integer    | null: false                   |Active hash
+| spending_pay_id       | integer    | null: false                   |Active hash
 | price                 | integer    | null: false                   |
 | description           | text       |                               |
 | user                  | references | null: false, foreign_key: true|
 ### Association
-blongs_to :user
+belongs_to :user
 
 
 ## budgetsテーブル

@@ -1,36 +1,193 @@
-.top-contents{
-  width: 100vw;
-  height: 50vh;
-  object-fit: cover;
+.mypage-main{
+  margin: 30px;
+  // scroll-behavior: smooth;
 }
 
-// -----header--------
-.top-page-logos{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+// -----------メニュー-------------
+.maypage-header{
+  margin: 20px 10px 30px 10px;
 }
 
-// -------ボタン---------
-.button-lists{
+.menus{
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  align-items: center; 
+}
+
+.menu{
+  width: 250px;
+  height: 40px;
+  text-align: center;
+  font-size: 25px;
+  list-style: none;
+  border-radius: 4;
+  border: 1px solid #544541 ;
+  margin: 0 10px;
+  word-wrap:break-word;
+  transition: all 0.5s;
   
- li{
-  border-radius: 2;
-  border: 2px solid #ed0bc7 ;
-  text-decoration: none;
- }
+  a{
+    text-decoration: none;
+    color: #544541;
+  }
+}
 
+.menu:hover{
+  background-color: #02c8a7;
+  border:none;
+  color: #000000;
 }
 
 
+// ---------支出入力フォーム-------------
+.input-title{
+  font-size: 30px;
+  margin-bottom: 25px;
+}
 
+.input-detail{
+  margin: auto;
+  width: 50vw;
+}
 
-.top-pict{
+.date-content,.way-content,.pay-content,.price-content,.description-content{
+  display: flex;
+  width: 500px;
+}
+
+// ↓ここで横幅を指定
+.date-input,.select-box,.price-input,.items-text{
   width: 100%;
-  height: 100%;
+  height: 40px;
+  margin: 10px;
+  font-size: 30px;
+}
+
+.input-text{
+  font-size: 30px;
+  margin-right: 10px;
+  text-align: center;
+  padding: 10px 0;
+  width: 100px;
+}
+
+.sell-btn-content{
+  width: 500px;
+  text-align: center;
+}
+
+.sell-btn{
+  width: 40%;
+  height: 40px;
+  margin: 10px;
+  font-size: 20px;
+  margin:20px 0 0 60px;
+}
+
+// ---------youtube------------//
+.record-input-contsnts{
+  display: flex;
+}
+
+.youtube{
+  width: 50vw;
+  height: 60vh;
+  background-color: #faecc3;
 }
 
 
+
+// ---------支出たくさん入力-------------//
+
+.record-multi-input{
+  margin: 20px 0;
+}
+
+// ---------一覧表示-------------//
+.report{
+}
+
+.report-title{
+  font-size: 30px;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+table{
+  width: 90%;
+  // height: 60vh;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+
+
+table thead th{
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+}
+
+table th,table td{
+  padding: 10px 0;
+  text-align: center;
+}
+
+table tr:nth-child(odd){
+  background-color: #faecc3
+}
+
+
+.report-date{
+  width: 100px;
+}
+
+
+// -------footer--------
+footer{
+  height: 40px;
+}
+
+// ---------ページ上部への遷移-------------//
+/* スムーススクロール */
+html{
+  scroll-behavior: smooth;
+}
+/* トップに戻るボタン */
+a.backToTop {
+    background: #02c8a7;
+    width: 55px;
+    height: 55px;
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+    opacity: 0;
+    z-index: 999;
+    border-radius: 9999px;
+    display: inline-block;
+    transition: opacity 0.8s;
+    pointer-events: none;
+}
+/* 上三角 */
+a.backToTop:before {
+    display: inline-block;
+    color: #FFF;
+    line-height: 1;
+    width: 0.8rem;
+    height: 0.8em;
+    border: 0.2em solid currentColor;
+    border-left: 0;
+    border-bottom: 0;
+    box-sizing: border-box;
+    content: "";
+    z-index: 1000;
+    opacity: 1;
+    left: 50%;
+    top: 55%;
+    position: absolute;
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+/* hover時 */
+a.backToTop:hover {
+    opacity: 0.8 !important;
+}

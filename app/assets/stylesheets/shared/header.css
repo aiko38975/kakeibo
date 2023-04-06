@@ -1,0 +1,28 @@
+.record-page-header{
+  width: 98vw;
+  height: 10vh;
+  background-color: #c7d8c6;
+  border-bottom: 3px solid #fff;
+  padding: 20px 10px 0 10px;
+}
+
+.header-logos{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #735E59;
+}
+
+.greeting{
+  margin-left: 20px;
+  line-height: 60px;
+  font-size: 30px;
+}
+
+
+.logout{
+  text-decoration: none;
+  color: #735E59;
+  border: 1px solid #544541;
+  margin-right: 30px;
+}
