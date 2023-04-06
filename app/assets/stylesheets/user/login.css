@@ -19,12 +19,14 @@
 
 .login-red-btn {
   width: 100%;
-  background: #EBDCB2;
-  border: 1px solid #EBDCB2;
+  background: #efd9c1;
+  border: 1px solid #efd9c1;
   color: #662E1C;
   line-height: 48px;
   font-size: 40px;
   cursor: pointer;
+  border: 1px solid #490202;
+
 }
 
 .login-flash-message {

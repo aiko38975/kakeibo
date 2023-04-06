@@ -1,10 +1,7 @@
-
-
 .mypage-main{
-  margin: 20px;
+  margin: 30px;
+  // scroll-behavior: smooth;
 }
-
-
 
 // -----------メニュー-------------
 .maypage-header{
@@ -27,81 +24,78 @@
   border: 1px solid #544541 ;
   margin: 0 10px;
   word-wrap:break-word;
+  transition: all 0.5s;
+  
+  a{
+    text-decoration: none;
+    color: #544541;
+  }
+}
+
+.menu:hover{
+  background-color: #02c8a7;
+  border:none;
+  color: #000000;
 }
 
 
 // ---------支出入力フォーム-------------
 .input-title{
   font-size: 30px;
-  margin-bottom: 40px;
+  margin-bottom: 25px;
 }
-
 
 .input-detail{
   margin: auto;
-  width: 90vw;
+  width: 50vw;
 }
 
-.date-content{
+.date-content,.way-content,.pay-content,.price-content,.description-content{
   display: flex;
-}
-.way-content{
-  display: flex;
-}
-.pay-content{
-  display: flex;
-}
-.price-content{
-  display: flex;
-}
-.description-content{
-  display: flex;
+  width: 500px;
 }
 
-.date-input{
-  width: 30%;
+// ↓ここで横幅を指定
+.date-input,.select-box,.price-input,.items-text{
+  width: 100%;
   height: 40px;
   margin: 10px;
   font-size: 30px;
 }
-
-.select-box{
-  width: 30%;
-  height: 40px;
-  margin: 10px;
-  font-size: 30px;
-}
-
-.price-input{
-  width: 30%;
-  height: 40px;
-  margin: 10px;
-  font-size: 30px;
-}
-.items-text{
-  width: 30%;
-  height: 40px;
-  margin: 10px;
-  font-size: 30px;
-}
-
 
 .input-text{
   font-size: 30px;
   margin-right: 10px;
+  text-align: center;
+  padding: 10px 0;
+  width: 100px;
 }
 
-.sell-btn-contents{
-
+.sell-btn-content{
+  width: 500px;
+  text-align: center;
 }
 
 .sell-btn{
-  width: 20%;
+  width: 40%;
   height: 40px;
   margin: 10px;
   font-size: 20px;
   margin:20px 0 0 60px;
 }
+
+// ---------youtube------------//
+.record-input-contsnts{
+  display: flex;
+}
+
+.youtube{
+  width: 50vw;
+  height: 60vh;
+  background-color: #faecc3;
+}
+
+
 
 // ---------支出たくさん入力-------------//
 
@@ -152,4 +146,48 @@ table tr:nth-child(odd){
 // -------footer--------
 footer{
   height: 40px;
+}
+
+// ---------ページ上部への遷移-------------//
+/* スムーススクロール */
+html{
+  scroll-behavior: smooth;
+}
+/* トップに戻るボタン */
+a.backToTop {
+    background: #02c8a7;
+    width: 55px;
+    height: 55px;
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+    opacity: 0;
+    z-index: 999;
+    border-radius: 9999px;
+    display: inline-block;
+    transition: opacity 0.8s;
+    pointer-events: none;
+}
+/* 上三角 */
+a.backToTop:before {
+    display: inline-block;
+    color: #FFF;
+    line-height: 1;
+    width: 0.8rem;
+    height: 0.8em;
+    border: 0.2em solid currentColor;
+    border-left: 0;
+    border-bottom: 0;
+    box-sizing: border-box;
+    content: "";
+    z-index: 1000;
+    opacity: 1;
+    left: 50%;
+    top: 55%;
+    position: absolute;
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+/* hover時 */
+a.backToTop:hover {
+    opacity: 0.8 !important;
 }

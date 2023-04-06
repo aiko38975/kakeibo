@@ -7,7 +7,7 @@
   justify-content: center;
 }
 
-/* form-wrapはログイn画面でも使用しています */
+/* form-wrapはログイン画面でも使用しています */
 .form-wrap {
   width: 50%;
   background-color: #efd9c1;
@@ -32,7 +32,7 @@
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  padding-top: 10px;
+  padding-top: 5px;
 }
 
 .form-group:first-child {
@@ -93,17 +93,16 @@
 .register-btn {
   width: 50%;
   margin: 0 auto;
-  margin-top: 10px;
-  
+  margin-top: 15px;
 }
 
 .register-red-btn {
   width: 100%;
-  background: #a9b7c0;
-  border: 1px solid #a9b7c0;
-  color: #fff;
+  background: #efd9c1;
+  border: 1px solid #490202;
+  color: #490202;
   line-height: 48px;
-  font-size: 20px;
+  font-size: 30px;
   cursor: pointer;
-  
+  letter-spacing: 10px;
 }
