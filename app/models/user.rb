@@ -9,4 +9,5 @@ class User < ApplicationRecord
             format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i }
 
   has_many :records
+  accepts_nested_attributes_for :records
 end

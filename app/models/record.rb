@@ -5,19 +5,12 @@ class Record < ApplicationRecord
   validates :price, presence: true,numericality: { only_integer: true }
 
   belongs_to :user
+ 
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :spending_way
   belongs_to_active_hash :spending_pay
 
-
-  # scope :search, -> (search_params) do
-  #   return if search_params.blank?
-
-  #    recorded_at_is(search_params[:recorded_at])
-  # end
-
-  # scope :recorded_at_is, -> (recorded_at) { where(recorded_at: recorded_at) if recorded_at.present? }  
 
   def self.search(search)
     if search != ""

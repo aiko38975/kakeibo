@@ -66,48 +66,38 @@
       ▼一度にたくさん保存する
     </div>
     <div>
-      <table>
-        <thead>
-          <tr>
-            <th class='table-top'>日付</th>
-            <th class='table-top'>費目</th>
-            <th class='table-top'>方法</th>
-            <th class='table-top'>金額</th>
-            <th class='table-top'>メモ</th>
-          </tr> 
-        </thead>
-        <tbody>
-          <%= form_with model: @record, local: true do |f| %>
-          <tr>
-            <th><%= f.date_field :recorded_at, class:'date-input', id:'record-price' %></th>
-            <th><%= f.collection_select(:spending_way_id,  SpendingWay.all, :id, :name, {}, {class:'select-box', id:'record-spending-way'}) %></th>
-            <th><%= f.collection_select(:spending_pay_id,  SpendingPay.all, :id, :name, {}, {class:'select-box', id:'record-spending-pay'}) %></th>
-            <th><%= f.text_field :price, class:'price-input', id:'record-price' %></th>
-            <th><%= f.text_area :description, class:'items-text', id:'record-description' %></th>
-          </tr>
-          <tr>
-            <th><%= f.date_field :recorded_at, class:'date-input', id:'record-price' %></th>
-            <th><%= f.collection_select(:spending_way_id,  SpendingWay.all, :id, :name, {}, {class:'select-box', id:'record-spending-way'}) %></th>
-            <th><%= f.collection_select(:spending_pay_id,  SpendingPay.all, :id, :name, {}, {class:'select-box', id:'record-spending-pay'}) %></th>
-            <th><%= f.text_field :price, class:'price-input', id:'record-price' %></th>
-            <th><%= f.text_area :description, class:'items-text', id:'record-description' %></th>
-          </tr>
-          <tr>
-            <th><%= f.date_field :recorded_at, class:'date-input', id:'record-price' %></th>
-            <th><%= f.collection_select(:spending_way_id,  SpendingWay.all, :id, :name, {}, {class:'select-box', id:'record-spending-way'}) %></th>
-            <th><%= f.collection_select(:spending_pay_id,  SpendingPay.all, :id, :name, {}, {class:'select-box', id:'record-spending-pay'}) %></th>
-            <th><%= f.text_field :price, class:'price-input', id:'record-price' %></th>
-            <th><%= f.text_area :description, class:'items-text', id:'record-description' %></th>
-          </tr>
-          <%= f.submit '登録する' ,class:'sell-btn', id: 'submit-save' %>
-          <% end %>
-        </tbody>
-
-      </table>
-
-
+      <%= form_with model:@form, url: records_path, method: :post, local: true do |form| %>
+        <table>
+          <thead>
+            <tr>
+              <th class='table-top'>日付</th>
+              <th class='table-top'>費目</th>
+              <th class='table-top'>方法</th>
+              <th class='table-top'>金額</th>
+              <th class='table-top'>メモ</th>
+            </tr> 
+          </thead>
+          <tbody>
+            <%= form.fields_for :records do |f| %>
+              <tr>
+                <td><%= f.date_field :recorded_at, class:'date-input1', id:'record-price' %></td>
+                <td><%= f.collection_select(:spending_way_id,  SpendingWay.all, :id, :name, {}, {class:'select-box1', id:'record-spending-way'}) %></td>
+                <td><%= f.collection_select(:spending_pay_id,  SpendingPay.all, :id, :name, {}, {class:'select-box1', id:'record-spending-pay'}) %></td>
+                <td><%= f.text_field :price, class:'price-input1', id:'record-price' %></td>
+                <td><%= f.text_area :description, class:'items-text1', id:'record-description' %></td>
+              </tr>
+            <% end %>
+          </tbody>
+          </table>
+          <div>
+          <%= form.submit '登録する' ,class:'sell-btn1', id: 'submit-save' %>
+          </div>
+        
+      <% end %>
     </div>
   </div>
+
+
 
 
   <div class='report'>
@@ -153,5 +143,4 @@
 
 <footer>
 </footer>
-
 </body>
