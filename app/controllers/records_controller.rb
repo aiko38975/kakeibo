@@ -1,10 +1,11 @@
 class RecordsController < ApplicationController
   # before_action :authenticate_user!
-
+  before_action :set_record, only: [:edit, :update, :destroy]
 
   def index
     @record = Record.new
     @records = Record.includes(:user).order("recorded_at DESC")
+    @form = Form::RecordCollection.new
   end
   
   def new
@@ -12,9 +13,17 @@ class RecordsController < ApplicationController
   end
 
   def create
-    @record = Record.new(record_params)
-    @record.user_id = current_user.id
-    if @record.save
+    # 以下コメントアウト部分は、1件登録用
+    # @record = Record.new(record_params)
+    # if @record.save
+    #   redirect_to records_path
+    # else
+    #   redirect_to records_path
+    # end
+
+    @form = Form::RecordCollection.new(record_collection_params)
+    binding.pry
+    if @form.save
       redirect_to records_path
     else
       redirect_to records_path
@@ -30,11 +39,9 @@ class RecordsController < ApplicationController
   end
 
   def edit
-    @record = Record.find(params[:id])
   end
 
   def update
-    @record = Record.find(params[:id])
     if @record.update(record_params)
       redirect_to records_path
     else
@@ -43,16 +50,29 @@ class RecordsController < ApplicationController
   end
 
   def destroy
-    @record = Record.find(params[:id])
     if @record.destroy
       redirect_to records_path
     end
   end
 
-
   private
+
   def record_params
-    params.require(:record).permit(:recorded_at, :spending_way_id, :spending_pay_id, :price, :description).merge(user_id: current_user.id)
+    params
+    .require(:record)
+    .permit(:recorded_at, :spending_way_id, :spending_pay_id, :price, :description).merge(user_id: current_user.id)
+  end
+
+  def record_collection_params
+    params
+    .require(:form_record_collection)
+    .permit(records_attributes: [:recorded_at, :spending_way_id, :spending_pay_id, :price, :description,:user_id ])
+    .merge(user_id: current_user.id)
+    # .map{ |key, value| [key. value.merge(user_id: params[:user_id])] }.to_h
+  end
+
+  def set_record
+    @record = Record.find(params[:id])
   end
 
 end
