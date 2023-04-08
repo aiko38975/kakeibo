@@ -1,6 +1,7 @@
 class Form::RecordCollection < Form::Base
   FORM_COUNT = 3
-  attr_accessor :records, :user_id
+  attr_accessor :records
+  attr_accessor :user_id
 
   def initialize(attributes = {})
     super attributes
@@ -12,6 +13,15 @@ class Form::RecordCollection < Form::Base
     self.records = attributes.map { |_, v| Record.new(v) }
   end
 
+#   def records_attributes=(attributes)
+#     self.records = attributes.map do |_, v|
+#     r = Record.new(v)
+#     r.user_id = user_id # user_idを設定する
+#     r
+#   end
+# end
+
+
   def save
     Record.transaction do
       self.records.map(&:save!)
@@ -20,5 +30,7 @@ class Form::RecordCollection < Form::Base
     rescue => e
       return false
   end
+
+
 end
 

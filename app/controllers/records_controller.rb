@@ -20,9 +20,9 @@ class RecordsController < ApplicationController
     # else
     #   redirect_to records_path
     # end
-    # binding.pry
+
     @form = Form::RecordCollection.new(record_collection_params)
-    # binding.pry
+    binding.pry
     if @form.save
       redirect_to records_path
     else
@@ -56,19 +56,20 @@ class RecordsController < ApplicationController
   end
 
   private
-  # def record_params
-  #   params
-  #   .require(:record)
-  #   .permit(:recorded_at, :spending_way_id, :spending_pay_id, :price, :description).merge(user_id: current_user.id)
-  # end
+
+  def record_params
+    params
+    .require(:record)
+    .permit(:recorded_at, :spending_way_id, :spending_pay_id, :price, :description).merge(user_id: current_user.id)
+  end
 
   def record_collection_params
     params
     .require(:form_record_collection)
-    .permit(records_attributes [:recorded_at, :spending_way_id, :spending_pay_id, :price, :description]).merge(user_id: current_user.id)
+    .permit(records_attributes: [:recorded_at, :spending_way_id, :spending_pay_id, :price, :description,:user_id ])
+    .merge(user_id: current_user.id)
+    # .map{ |key, value| [key. value.merge(user_id: params[:user_id])] }.to_h
   end
-
-  
 
   def set_record
     @record = Record.find(params[:id])
