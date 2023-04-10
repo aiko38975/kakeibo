@@ -32,13 +32,28 @@
   }
 }
 
-.menu:hover{
-  background-color: #02c8a7;
+.menu1:hover{
+  background-color: #a4d555;
   border:none;
-  color: #000000;
 }
 
+.menu2:hover{
+  background-color: #ff5992;
+  border:none;
+  color: #fff;
+}
 
+.menu3:hover{
+  background-color: #4cdef5;
+  border:none;
+  color: #fff;
+}
+
+.menu4:hover{
+  background-color: #84198278;
+  border:none;
+  color: #fff;
+}
 // ---------支出入力フォーム-------------
 .input-title{
   font-size: 30px;
@@ -104,25 +119,28 @@
 }
 
 // ---------一覧表示-------------//
-.report{
-}
-
 .report-title{
   font-size: 30px;
   display: flex;
   margin-bottom: 20px;
 }
 
-table{
+.report-table{
+  overflow: scroll;
   width: 90%;
+  height:600px;
+}
+
+table{
+  width: 100%;
   // height: 60vh;
   border-collapse: collapse;
   border-spacing: 0;
 }
 
 
-
 table thead th{
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
   background-color: #fff;

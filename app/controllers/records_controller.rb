@@ -13,25 +13,36 @@ class RecordsController < ApplicationController
   end
 
   def create
-    # 以下コメントアウト部分は、1件登録用
-    # @record = Record.new(record_params)
-    # if @record.save
-    #   redirect_to records_path
-    # else
-    #   redirect_to records_path
-    # end
-
-    @form = Form::RecordCollection.new(record_collection_params)
-    binding.pry
-    if @form.save
+    # 以下、1件登録用
+    @record = Record.new(record_params)
+    if @record.save
       redirect_to records_path
     else
       redirect_to records_path
     end
+    
+    # 以下、複数登録用
+    # @form = Form::RecordCollection.new(record_collection_params)
+    # binding.pry
+    # if @form.save
+    #   redirect_to records_path
+    # else
+    #   redirect_to records_path
+    # end
   end
 
   def show 
-    @records = Record.includes(:user).order("created_at DESC")
+    # @records = Record.all
+
+    #今月の支出状況
+    # 1,データベースから今月のレコードを取得
+    @spending_month = Record.where('extract(year from recorded_at) = ? AND extract(month from recorded_at) = ?', Time.now.year, Time.now.month)
+    # 2,カテゴリー名でグループ化して、金額を合計する。凡例をnameに置き換える。
+    @spending_way_month = @spending_month.group("spending_way_id").sum(:price).sort_by { |_, v| v }.reverse.map { |k, v| [SpendingWay.find(k).name, v] }.to_h
+
+    #月毎の支出状況
+    @selected_year = Date.new(params[:year].to_i)
+    # @selected_year = params[:year] || Date.today.year
   end
 
   def search
@@ -66,9 +77,8 @@ class RecordsController < ApplicationController
   def record_collection_params
     params
     .require(:form_record_collection)
-    .permit(records_attributes: [:recorded_at, :spending_way_id, :spending_pay_id, :price, :description,:user_id ])
+    .permit(records_attributes: [:recorded_at, :spending_way_id, :spending_pay_id, :price, :description, :user_id])
     .merge(user_id: current_user.id)
-    # .map{ |key, value| [key. value.merge(user_id: params[:user_id])] }.to_h
   end
 
   def set_record
