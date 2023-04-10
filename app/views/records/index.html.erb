@@ -5,10 +5,10 @@
 
 <div class='maypage-header'>
   <ul class='menus'>
-    <li class='menu'><%= link_to '支出を1件登録', '#menu1'  %></li>
-    <li class='menu'><%= link_to '支出をたくさん登録', '#menu2' %></li>
-    <li class='menu'><%= link_to '一覧表示', '#menu3' %></li>
-    <li class='menu'><%= link_to '統計', record_path(@records), class:'all-report', method: :get%></li> 
+    <li class='menu menu1'><%= link_to '支出を1件登録', '#menu1'  %></li>
+    <li class='menu menu2'><%= link_to '支出をたくさん登録', '#menu2' %></li>
+    <li class='menu menu3'><%= link_to '一覧表示', '#menu3' %></li>
+    <li class='menu menu4'><%= link_to '統計', record_path(@records), class:'all-report', method: :get%></li> 
   </ul>
 </div>
 
@@ -102,15 +102,15 @@
   <div class='report'>
     <div class='report-title'  id='menu3' >
       <div >▼</div>
-      <div class='report-month'>   
+      <div class='report-month'>
         <%= form_with(url: search_records_path, local: true, method: :get, class: 'search-form') do |f| %>
           <%= f.month_field :recorded_at, placeholder: '投稿を検索する', class: 'search-input' %>
           <%= f.submit '表示する', class: 'search-btn' %>
         <% end %>
       </div>
     </div>
-
-    <table>
+    <div class='report-table'>
+      <table>
         <thead>
           <tr>
             <th class='table-top'>日付</th>
@@ -136,6 +136,7 @@
           <% end %>
         </tbody>
       </table>
+    </div>
 
   </div>
 </div>
