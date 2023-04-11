@@ -15,21 +15,21 @@ class RecordsController < ApplicationController
 
   def create
     # 以下、1件登録用
-    @record = Record.new(record_params)
-    if @record.save
-      redirect_to records_path
-    else
-      redirect_to records_path
-    end
-    
-    # 以下、複数登録用
-    # @form = Form::RecordCollection.new(record_collection_params)
-    # binding.pry
-    # if @form.save
+    # @record = Record.new(record_params)
+    # if @record.save
     #   redirect_to records_path
     # else
     #   redirect_to records_path
     # end
+    
+    # 以下、複数登録用
+    @form = Form::RecordCollection.new(record_collection_params)
+    # binding.pry
+    if @form.save
+      redirect_to records_path
+    else
+      redirect_to records_path
+    end
   end
 
   def show 
@@ -69,17 +69,17 @@ class RecordsController < ApplicationController
 
   private
 
-  def record_params
-    params
-    .require(:record)
-    .permit(:recorded_at, :spending_way_id, :spending_pay_id, :price, :description).merge(user_id: current_user.id)
-  end
+  # def record_params
+  #   params
+  #   .require(:record)
+  #   .permit(:recorded_at, :spending_way_id, :spending_pay_id, :price, :description).merge(user_id: current_user.id)
+  # end
 
   def record_collection_params
     params
     .require(:form_record_collection)
     .permit(records_attributes: [:recorded_at, :spending_way_id, :spending_pay_id, :price, :description, :user_id])
-    .merge(user_id: current_user.id)
+    # .merge(user_id: current_user.id)
   end
 
   def set_record

@@ -4,13 +4,16 @@ class Form::RecordCollection < Form::Base
 
   def initialize(attributes = {})
     super attributes
-    self.user_id = attributes[:user_id] #追加
+    # self.user_id = attributes[:user_id] #追加
     self.records = FORM_COUNT.times.map { Record.new() } unless self.records.present?
   end
 
   # records_attributesで送られてきたパラメーターをattributesという変数に代入
   def records_attributes=(attributes)
-    self.records = attributes.map { |_, v| Record.new(v.merge(user_id: user_id)) }
+    self.records = attributes.map { |_, v| Record.new() }
+
+    # self.records = attributes.map { |_, v| Record.new(v.merge(user_id: user_id)) }
+
   end
 
   def save

@@ -87,6 +87,7 @@
                 <td><%= f.collection_select(:spending_pay_id,  SpendingPay.all, :id, :name, {}, {class:'select-box1', id:'record-spending-pay'}) %></td>
                 <td><%= f.text_field :price, class:'price-input1', id:'record-price' %></td>
                 <td><%= f.text_area :description, class:'items-text1', id:'record-description' %></td>
+                <%= f.hidden_field :user_id, value: current_user.id %>
               </tr>
             <% end %>
           </tbody>
