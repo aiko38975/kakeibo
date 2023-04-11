@@ -6,6 +6,7 @@ class RecordsController < ApplicationController
     @record = Record.new
     @records = Record.includes(:user).order("recorded_at DESC")
     @form = Form::RecordCollection.new
+
   end
   
   def new
