@@ -58,7 +58,7 @@
 // ---------支出入力フォーム-------------
 .input-title{
   font-size: 30px;
-  margin-bottom: 25px;
+  margin-bottom: 10px;
 }
 
 .input-detail{
@@ -114,14 +114,32 @@
 // ---------支出たくさん入力-------------//
 
 .record-multi-input{
-  margin: 20px 0;
+  margin: 30px 0;
+  width: 90%;
 }
 
 .items-text1{
   height: 2em;
 }
 
+.sell-btn-content1{
+  width: 500px;
+  text-align: center;
+}
+
+.sell-btn1{
+  width: 40%;
+  height: 40px;
+  margin: 10px;
+  font-size: 20px;
+  margin:20px 0 0 60px;
+}
+
 // ---------一覧表示-------------//
+.report{
+  margin: 50px 0 20px 0;
+}
+
 .report-title{
   font-size: 30px;
   display: flex;
@@ -147,7 +165,7 @@ table thead th{
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  background-color: #fff;
+  background-color: #fbbcd2;
 }
 
 table th,table td{
