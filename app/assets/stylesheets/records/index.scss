@@ -25,6 +25,7 @@
   margin: 0 10px;
   word-wrap:break-word;
   transition: all 0.5s;
+
   
   a{
     text-decoration: none;
@@ -50,7 +51,7 @@
 }
 
 .menu4:hover{
-  background-color: #84198278;
+  background-color: #e9fa05f5;
   border:none;
   color: #fff;
 }
@@ -107,8 +108,9 @@
 .youtube{
   width: 50vw;
   height: 60vh;
-  background-color: #faecc3;
 }
+
+
 
 
 
@@ -116,6 +118,10 @@
 
 .record-multi-input{
   margin: 20px 0;
+}
+
+.items-text1{
+  height: 2em;
 }
 
 // ---------一覧表示-------------//
@@ -136,6 +142,7 @@ table{
   // height: 60vh;
   border-collapse: collapse;
   border-spacing: 0;
+  font-size: 20px;
 }
 
 
@@ -173,7 +180,7 @@ html{
 }
 /* トップに戻るボタン */
 a.backToTop {
-    background: #02c8a7;
+    background: #ef3f98;
     width: 55px;
     height: 55px;
     position: fixed;
