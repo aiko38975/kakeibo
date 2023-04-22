@@ -26,15 +26,26 @@ https://kakeibo-8m8y.onrender.com
 そこで、家計簿をノートに手書きで書いている点に注目し、家計簿の記録をきっかけとしてパソコンに触れてほしいと思い、開発することにした。
 
 ## 洗い出した要件
-要件定義書
+https://docs.google.com/spreadsheets/d/1T_YiOfiMoDF8_rWKBqXsiPUHuxNDMoy8Zpj9QisTFjE/edit#gid=982722306
 
 ## 実装した機能についての説明
-画像やGIF、説明を記載〜
+トップページ
+[![Image from Gyazo](https://i.gyazo.com/dfc54be132b95aa993db9b9785dfca6e.png)](https://gyazo.com/dfc54be132b95aa993db9b9785dfca6e)
+- ログインまたは新規登録を行う
+
+マイページ
+[![Image from Gyazo](https://i.gyazo.com/e8c9d798d026de7f6144b7b38e6e8460.jpg)](https://gyazo.com/e8c9d798d026de7f6144b7b38e6e8460)
+- 支出の一件登録では、支出を一件ずつ登録できる
+
+[![Image from Gyazo](https://i.gyazo.com/c7912eed1a7e9310ead412d5904613de.png)](https://gyazo.com/c7912eed1a7e9310ead412d5904613de)
+- 支出の複数登録では、支出を複数一括登録できる（保存機能は実装中）
+
+[![Image from Gyazo](https://i.gyazo.com/b124329b88390c334c18f025e166c8b3.gif)](https://gyazo.com/b124329b88390c334c18f025e166c8b3)
+- 一覧表示では、指定した月の一覧が表示される（指定した月を非同期通信にて表示させる機能は実装中）
 
 ## 実装予定の機能
 * カテゴリーの編集機能
 * 非同期通信による表示
-* 
 
 ## データベース設計
 [![Image from Gyazo](https://i.gyazo.com/9f063cb0143da0c62a64ac95a7c984c9.png)](https://gyazo.com/9f063cb0143da0c62a64ac95a7c984c9)
