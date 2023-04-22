@@ -1,7 +1,5 @@
 <%= render "shared/second_header" %>
 
-<h1>統計ページ</h1>
-
 <div class="report">
   <%= form_with(url: search_records_path, local: true, method: :get, class: "search-form") do |f| %>
   <%= f.month_field :recorded_at, class: "search-input" %>
@@ -22,19 +20,19 @@
 
 
 <%# <% SpendingWay.where.not(id: 1).each do |spending_way| %>
-  <%# <div id="<%= spending_way.name.parameterize-chart"> %> %>
-    <%# <% data = spending_way.records.where(recorded_at: @selected_year.beginning_of_year..@selected_year.end_of_year).group_by_month(:recorded_at, format: "%Y年%m月").sum(:price) %> %>
-    <%# <% next if data.values.all?(&:zero?) %> %>
-    <%# <%= line_chart data, width: '500px', title: spending_way.name %> %>
+  <%# <div id="<%= spending_way.name.parameterize-chart"> %> 
+    <%# <% data = spending_way.records.where(recorded_at: @selected_year.beginning_of_year..@selected_year.end_of_year).group_by_month(:recorded_at, format: "%Y年%m月").sum(:price) %>
+    <%# <% next if data.values.all?(&:zero?) %> 
+    <%# <%= line_chart data, width: '500px', title: spending_way.name %> 
   <%# </div> %>
-<%# <% end %> %> %>
+<%# <% end %> 
 
 
-<%# <% SpendingWay.where.not(id: 1).each do |spending_way| %> %>
-  <%# <% data = spending_way.records.where(recorded_at: @selected_year.beginning_of_year..@selected_year.end_of_year).group_by_month(:recorded_at, format: "%Y年%m月").sum(:price) %> %>
-  <%# <% next if data.values.all?(&:zero?) %> %>
-  <%# <%= line_chart data, width: '500px', title: spending_way.name %> %>
-<%# <% end %> %>
+<%# <% SpendingWay.where.not(id: 1).each do |spending_way| %> 
+  <%# <% data = spending_way.records.where(recorded_at: @selected_year.beginning_of_year..@selected_year.end_of_year).group_by_month(:recorded_at, format: "%Y年%m月").sum(:price) %>
+  <%# <% next if data.values.all?(&:zero?) %> 
+  <%# <%= line_chart data, width: '500px', title: spending_way.name %> 
+<%# <% end %> 
 
 
 <% SpendingWay.where.not(id: 1).each do |spending_way| %>

@@ -2,7 +2,7 @@
 
 <div class="record-input">
     <div class="input-title">
-    支出を編集する
+    ▼支出を編集する
     </div>
     <%= form_with model: @record, local: true do |f| %>
     <%# <%= render 'shared/error_messages', model: f.object %>
@@ -40,9 +40,11 @@
       <%# 更新ボタン %>
       <div class="sell-btn-contents">
         <%= f.submit "更新する" ,class:"sell-btn" %>
-        <%= link_to 'もどる', records_path, class: 'btn btn-secondary' %>
+        <%= link_to 'もどる', records_path, class:'back-btn' %>
       </div>
       <%# /更新ボタン %>
     </div>
     <% end %>
   </div>
+
+  <footer></footer>

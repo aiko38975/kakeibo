@@ -29,7 +29,7 @@ class RecordsController < ApplicationController
   #   else
   #     redirect_to records_path
   #   end
-  # end
+  end
 
   def show 
     # @records = Record.all
