@@ -56,7 +56,8 @@ https://docs.google.com/spreadsheets/d/1T_YiOfiMoDF8_rWKBqXsiPUHuxNDMoy8Zpj9QisT
 ## 開発環境
 - Ruby 2.6.5
 - Ruby on Rails
-- PostgreSQL
+- mysql2
+- PostgreSQL(本番環境)
 
 ##　ローカルでの動作方法
 
@@ -74,7 +75,7 @@ https://docs.google.com/spreadsheets/d/1T_YiOfiMoDF8_rWKBqXsiPUHuxNDMoy8Zpj9QisT
 - 支出統計表示機能
 
 
-## usersテーブル
+<!-- ## usersテーブル
 
 | Column                | Type      | Options                    |
 | --------------------- | --------- | -------------------------- |
@@ -96,6 +97,6 @@ has_many :records
 | spending_pay_id       | integer    | null: false                   |
 | user                  | references | null: false, foreign_key: true|
 ### Association
-belongs_to :user
+belongs_to :user -->
 
 
